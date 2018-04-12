@@ -1,0 +1,241 @@
+$bg_body:url("../img/bg1.jpg") no-repeat;
+$bg_sun: rgb(235, 208, 12);
+$bg_mercury: rgb(205, 207, 191);
+$bg_venera: rgb(146, 133, 144);
+$bg_earth: rgb(122, 48, 48);
+$bg_mars: rgb(41, 105, 214);
+$bg_jupiter: rgb(201, 193, 175);
+$bg_saturn: #f77e2d;
+$bg_uran: rgb(123, 207, 230);
+$bg_neptune: rgb(91,93,223);
+$bg_pluto: #E5CFA1;
+
+$widths_shablon: 5em;
+$height_shablon: 5em;
+$plus: 3em;
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: $bg_body;
+  display: flex;
+  flex-direction: column;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+p {
+  color: white;
+}
+
+.wrapper {
+  flex-grow: 1;
+}
+
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgb(143, 143, 143);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.orbit_mercury, .orbit_venera, .orbit_earth, .orbit_mars, .orbit_jupiter, .orbit_saturn, .orbit_uran, .orbit_neptune, .orbit_pluto {
+  @extend .orbit;
+}
+
+.sun, .planet_mercury, .planet_venera, .planet_earth, .planet_mars, .planet_jupiter, .planet_saturn, .planet_uran, .planet_neptune, .planet_pluto{
+  @extend .planet;
+}
+
+.sun {
+  width: 2em;
+  height: 2em;
+  transform: translate(-50%,-50%);
+  background: $bg_sun;
+}
+
+.orbit_mercury {
+  width: $widths_shablon;
+  height: $height_shablon;
+}
+.orbit_venera {
+  width: $widths_shablon + $plus;
+  height: $height_shablon + $plus;
+}
+.orbit_earth {
+  width: $widths_shablon + 6em;
+  height: $height_shablon + 6em;
+}
+.orbit_mars {
+  width: $widths_shablon + 9em;
+  height: $height_shablon + 9em;
+}
+.orbit_jupiter {
+  width: $widths_shablon + 12em;
+  height: $height_shablon + 12em;
+}
+.orbit_saturn {
+  width: $widths_shablon + 15em;
+  height: $height_shablon + 15em;
+}
+.orbit_uran {
+  width: $widths_shablon + 18em;
+  height: $height_shablon + 18em;
+}
+.orbit_neptune {
+  width: $widths_shablon + 21em;
+  height: $height_shablon + 21em;
+}
+.orbit_pluto {
+  width: $widths_shablon + 24em;
+  height: $height_shablon + 24em;
+}
+
+
+.planet_mercury{
+  width: 1em;
+  height: 1em;
+  background-color: $bg_mercury;
+  margin-left: -2.5em;
+}
+.planet_venera{
+  width: 1em;
+  height: 1em;
+  background-color: $bg_venera;
+  margin-left: -4em;
+}
+.planet_earth{
+  width: 1em;
+  height: 1em;
+  background-color: $bg_earth;
+  margin-left: -5.5em;
+}
+.planet_mars{
+  width: 1em;
+  height: 1em;
+  background-color: $bg_mars;
+  margin-left: -7em;
+}
+.planet_jupiter{
+  width: 1em;
+  height: 1em;
+  background-color: $bg_jupiter;
+  margin-left: -8.5em;
+}
+.planet_saturn{
+  width: 0.9em;
+  height: 0.9em;
+  background-color: $bg_saturn;
+  margin-left: -10em;
+}
+.planet_saturn::before {
+  content: " ";
+  width: 22px;
+  height: 22px;
+  left: -4px;
+  top: -4px;
+  position: absolute;
+  display: block;
+  border: 2px solid $bg_saturn;
+  border-radius: 50%;
+}
+.planet_uran{
+  width: 1em;
+  height: 1em;
+  background-color: $bg_uran;
+  margin-left: -11.5em;
+}
+.planet_neptune{
+  width: 1em;
+  height: 1em;
+  background-color: $bg_neptune;
+  margin-left: -13em;
+}
+.planet_pluto{
+  width: 1em;
+  height: 1em;
+  background-color: $bg_pluto;
+  margin-left: -14.5em;
+}
+
+/*Анимации для планет*/
+
+.animate {
+  animation-name: around;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+@keyframes around {
+    0%   { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(360deg); }
+}
+
+.animate_mercury, .animate_venera, .animate_earth, .animate_mars, .animate_jupiter, .animate_saturn, .animate_uran, .animate_neptune, .animate_pluto {
+  @extend .animate;
+}
+
+.animate_mercury {
+  animation-duration: 20s;
+}
+
+.animate_venera{
+  animation-duration: 25s;
+}
+
+.animate_earth{
+  animation-duration: 30s;
+}
+
+.animate_pluto{
+  animation-duration: 30s;
+}
+
+.animate_mars {
+  animation-duration: 35s;
+}
+
+.animate_jupiter{
+  animation-duration: 40s;
+}
+
+.animate_saturn {
+  animation-duration: 45s;
+}
+
+.animate_uran {
+  animation-duration: 50s;
+}
+
+.animate_neptune {
+  animation-duration: 55s;
+}
+
+.animate_pluto {
+  animation-duration: 60s;
+}
